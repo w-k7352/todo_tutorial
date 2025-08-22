@@ -1,0 +1,29 @@
+{
+  "name": "todo_tutorial",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/w-k7352/todo_tutorial.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/w-k7352/todo_tutorial/issues"
+  },
+  "homepage": "https://github.com/w-k7352/todo_tutorial#readme",
+  "description": "",
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "jest": "^30.0.5",
+    "jest-environment-jsdom": "^30.0.5",
+    "playwright": "^1.55.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
+  }
+}

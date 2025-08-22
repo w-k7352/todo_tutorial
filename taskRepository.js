@@ -68,3 +68,6 @@ const TaskRepository = (() => {
         remove
     };
 })();
+
+
+module.exports = TaskRepository;

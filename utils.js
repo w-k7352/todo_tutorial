@@ -22,7 +22,7 @@ const Utils = {
      */
     escapeForHTML(str) {
         if (!str) return '';
-        return str.replace(/[&<>'"\/]/g, (match) => {
+        return str.replace(/[&<>()"'\/]/g, (match) => {
             const escape = {
                 '&': '&amp;',
                 '<': '&lt;',
@@ -70,3 +70,5 @@ const Utils = {
         return str;
     }
 };
+
+module.exports = Utils;

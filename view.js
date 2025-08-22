@@ -128,3 +128,5 @@ const View = (() => {
         showToast
     };
 })();
+
+module.exports = View;
