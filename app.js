@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     const App = (() => {
+        // ViewモジュールのDOM要素を初期化
+        View.init();
+
         const state = {
             tasks: [],
             filter: {

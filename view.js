@@ -1,28 +1,31 @@
 const View = (() => {
-    // DOM要素をキャッシュ
-    const elements = {
+    // DOM要素のキャッシュ（初期化は後で行う）
+    const elements = {};
+
+    // DOM要素を検索してキャッシュに格納する
+    const initializeDOMElements = () => {
         // Counters
-        counterTodo: document.getElementById('counter-todo'),
-        counterDoing: document.getElementById('counter-doing'),
-        counterDone: document.getElementById('counter-done'),
+        elements.counterTodo = document.getElementById('counter-todo');
+        elements.counterDoing = document.getElementById('counter-doing');
+        elements.counterDone = document.getElementById('counter-done');
         // New Task Form
-        addTaskForm: document.getElementById('add-task-form'),
-        taskTitleInput: document.getElementById('task-title-input'),
-        taskDueDateInput: document.getElementById('task-due-date-input'),
-        taskTagsInput: document.getElementById('task-tags-input'),
+        elements.addTaskForm = document.getElementById('add-task-form');
+        elements.taskTitleInput = document.getElementById('task-title-input');
+        elements.taskDueDateInput = document.getElementById('task-due-date-input');
+        elements.taskTagsInput = document.getElementById('task-tags-input');
         // Task List
-        taskListBody: document.getElementById('task-list-body'),
+        elements.taskListBody = document.getElementById('task-list-body');
         // Edit Modal
-        editModal: document.getElementById('edit-modal'),
-        editTaskForm: document.getElementById('edit-task-form'),
-        editTaskId: document.getElementById('edit-task-id'),
-        editTaskTitle: document.getElementById('edit-task-title'),
-        editTaskDue: document.getElementById('edit-task-due'),
-        editTaskTags: document.getElementById('edit-task-tags'),
-        editTaskStatus: document.getElementById('edit-task-status'),
-        modalCloseButton: document.getElementById('modal-close-button'),
+        elements.editModal = document.getElementById('edit-modal');
+        elements.editTaskForm = document.getElementById('edit-task-form');
+        elements.editTaskId = document.getElementById('edit-task-id');
+        elements.editTaskTitle = document.getElementById('edit-task-title');
+        elements.editTaskDue = document.getElementById('edit-task-due');
+        elements.editTaskTags = document.getElementById('edit-task-tags');
+        elements.editTaskStatus = document.getElementById('edit-task-status');
+        elements.modalCloseButton = document.getElementById('modal-close-button');
         // Toast
-        toast: document.getElementById('toast-notification'),
+        elements.toast = document.getElementById('toast-notification');
     };
 
     const getStatusText = (status) => {
@@ -97,11 +100,11 @@ const View = (() => {
         elements.editTaskDue.value = task.due || '';
         elements.editTaskTags.value = task.tags.join(', ');
         elements.editTaskStatus.value = task.status;
-        elements.editModal.hidden = false;
+        elements.editModal.classList.add('is-visible');
     };
 
     const hideEditModal = () => {
-        elements.editModal.hidden = true;
+        elements.editModal.classList.remove('is-visible');
     };
 
     let toastTimer;
@@ -115,6 +118,7 @@ const View = (() => {
     };
 
     return {
+        init: initializeDOMElements, // initという名前で関数を公開
         elements,
         renderTasks,
         updateCounters,
